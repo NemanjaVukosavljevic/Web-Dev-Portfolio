@@ -1,0 +1,116 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .trip {
+    animation: moveArrow 0.5s ease;
+    transform: translate(5px, -5px);
+    color: cyan;
+  }
+
+  @keyframes moveArrow {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(5px, -5px);
+    }
+  }
+  
+
+
+
+  .eks {
+    width: 4rem;
+    color: white;
+  }
+  
+
+  
+  .loading-page {
+    background: #141e30;
+    background: -webkit-linear-gradient(to left, #141e30, #243b55); 
+    background: linear-gradient(to left, #141e30, #243b55); 
+
+  }
+
+  .font {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .second {
+    background: #141e30;
+    background: -webkit-linear-gradient(to left, #141e30, #243b55); 
+    background: linear-gradient(to left, #141e30, #243b55); 
+  }
+  
+  #svg {
+    height: 150px;
+    width: 150px;
+    stroke: white;
+    fill-opacity: 0;
+    stroke-width: 3px;
+    stroke-dasharray: 4500;
+    animation: draw 8s ease;
+  }
+
+  .slut {
+    animation: slut 1.3s ease;
+  }
+  
+  
+  .name-container {
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .logo-name {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: transparent; /* Make the text color transparent */
+    -webkit-text-stroke: 1px rgb(226, 226, 226); /* Add a white outline around each letter */
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+
+  .slips {
+    width: 2rem;
+    animation: widen 1.3s ease;
+  }
+
+  
+
+  /* ANIMATIONS */
+
+    @keyframes draw {
+        0% {
+        stroke-dashoffset: 4500;
+        }
+        100% {
+        stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes slut {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes widen {
+        0% {
+            width: 2rem;
+        }
+        100% {
+            width: 5rem;
+        }
+    }
