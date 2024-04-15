@@ -17,24 +17,24 @@ gsap.fromTo(
   );
 
 
-//   const openScene = document.querySelector('.reg');
-//   const loadingPage = document.querySelector('.loading-page');
-//   const leftie = document.querySelector('.leftie');
+  // const openScene = document.querySelector('.reg');
+  // const loadingPage = document.querySelector('.loading-page');
+  // const leftie = document.querySelector('.leftie');
 
-//   setTimeout(() => {
-//     loadingPage.classList.add('hidden');
-//     openScene.classList.remove('hidden');
-//     leftie.classList.add('slut');
+  // setTimeout(() => {
+  //   loadingPage.classList.add('hidden');
+  //   openScene.classList.remove('hidden');
+  //   leftie.classList.add('slut');
     
     
-//   }, 5000);
+  // }, 5000);
 
-//   const proba = document.querySelector('.proba');
+  // const proba = document.querySelector('.proba');
 
-//   document.body.addEventListener('click', () => {
-//     proba.classList.toggle('w-16');
-//     proba.classList.toggle('bg-slate-200');
-//   });
+  // document.body.addEventListener('click', () => {
+  //   proba.classList.toggle('w-16');
+  //   proba.classList.toggle('bg-slate-200');
+  // });
 
 
 //   // Select the target elements to observe
@@ -103,6 +103,12 @@ const callback = (entries, observer) => {
         navText[index].classList.add('eks');
       }
 
+      // Check if the intersecting element is helperSlider
+      if (entry.target.classList.contains('helperSlider')) {
+        // Add the 'eks' class to the 2nd element in the navLinks array
+        navLinks[1].classList.add('eks');
+      }
+
       // Make navbar text white
       navbar.classList.add('text-white');
     } else {
@@ -111,6 +117,7 @@ const callback = (entries, observer) => {
     }
   });
 }
+
 
 // Create a new IntersectionObserver instance
 const observer = new IntersectionObserver(callback, options);
@@ -132,6 +139,12 @@ if (projectsContainer) {
         // Create project container
         const projectDiv = document.createElement('div');
         projectDiv.className = `flex my-2 h-full w-full text-white rounded-md group border-gray-500 hover:bg-gray-700 transition-all duration-150 cursor-pointer`;
+        
+        // Add click event listener to redirect to project URL in a new tab
+        projectDiv.addEventListener('click', () => {
+          window.open(project.projectUrl, '_blank');
+        });
+
 
         // Create left side for project image
         const leftDiv = document.createElement('div');
@@ -142,6 +155,7 @@ if (projectsContainer) {
         img.src = project.img;
         img.alt = 'Project Image'
         img.className = `rounded border-2 mt-4 ml-2 w-full max-h-[8rem] border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1`
+
         // Append image to left side
         leftDiv.appendChild(img);
 
@@ -218,3 +232,50 @@ if (projectsContainer) {
 } else {
     console.error('Projects container not found');
 }
+
+
+// ------------------------------------- FORM ---------------------------------------------
+
+
+const form = document.getElementById('form');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', function(e) {
+    const formData = new FormData(form);
+    e.preventDefault();
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    result.innerHTML = "Please wait..."
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                result.innerHTML = json.message;
+            } else {
+                console.log(response);
+                result.innerHTML = json.message;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+        })
+        .then(function() {
+            form.reset();
+            setTimeout(() => {
+                result.style.display = "none";
+            }, 3000);
+        });
+});
+
+console.log(Projects.length);
