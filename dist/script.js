@@ -17,24 +17,24 @@ gsap.fromTo(
   );
 
 
-  // const openScene = document.querySelector('.reg');
-  // const loadingPage = document.querySelector('.loading-page');
-  // const leftie = document.querySelector('.leftie');
+  const openScene = document.querySelector('.reg');
+  const loadingPage = document.querySelector('.loading-page');
+  const leftie = document.querySelector('.leftie');
 
-  // setTimeout(() => {
-  //   loadingPage.classList.add('hidden');
-  //   openScene.classList.remove('hidden');
-  //   leftie.classList.add('slut');
+  setTimeout(() => {
+    loadingPage.classList.add('hidden');
+    openScene.classList.remove('hidden');
+    leftie.classList.add('slut');
     
     
-  // }, 5000);
+  }, 5000);
 
-  // const proba = document.querySelector('.proba');
+  const proba = document.querySelector('.proba');
 
-  // document.body.addEventListener('click', () => {
-  //   proba.classList.toggle('w-16');
-  //   proba.classList.toggle('bg-slate-200');
-  // });
+  document.body.addEventListener('click', () => {
+    proba.classList.toggle('w-16');
+    proba.classList.toggle('bg-slate-200');
+  });
 
 
 //   // Select the target elements to observe

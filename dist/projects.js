@@ -4,7 +4,7 @@ const Projects = [
         projectName: 'Modelling Agency Webiste',
         description: 'Video course that teaches how to build a web app with the Spotify Web API. Topics covered include the principles of REST APIs, user auth flows, Node, Express, React, Styled Components, and more.',
         tech: ['javascript', 'tailwind', 'WebForms' , 'html'],
-        projectUrl: 'https://google.com',
+        projectUrl: 'https://brightstaragency.netlify.app/',
     },
     {
         img: './images/florist2.png',
@@ -21,11 +21,18 @@ const Projects = [
         projectUrl: 'https://example.com/modelling-agency',
     },
     {
+        img: './images/commerce.png',
+        projectName: 'E-Commerce Website',
+        description: 'Video course that teaches how to build a web app with the Spotify Web API. Topics covered include the principles of REST APIs, user auth flows, Node, Express, React, Styled Components, and more.',
+        tech: ['react', 'javascript', 'tailwind', 'html'],
+        projectUrl: 'https://smartbuyhub.netlify.app/',
+    },
+    {
         img: './images/spacex.png',
         projectName: 'Space X Website',
         description: 'Video course that teaches how to build a web app with the Spotify Web API. Topics covered include the principles of REST APIs, user auth flows, Node, Express, React, Styled Components, and more.',
         tech: ['react', 'javascript', 'tailwind', 'html'],
-        projectUrl: 'https://example.com/modelling-agency',
+        projectUrl: 'https://spacexapp-amazedevs.netlify.app/',
     },
     {
         img: './images/currency.png',
