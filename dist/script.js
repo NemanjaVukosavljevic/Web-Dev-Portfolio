@@ -19,17 +19,17 @@ gsap.fromTo(
   );
 
 
-  // const openScene = document.querySelector('.reg');
-  // const loadingPage = document.querySelector('.loading-page');
-  // const leftie = document.querySelector('.leftie');
+  const openScene = document.querySelector('.reg');
+  const loadingPage = document.querySelector('.loading-page');
+  const leftie = document.querySelector('.leftie');
 
-  // setTimeout(() => {
-  //   loadingPage.classList.add('hidden');
-  //   openScene.classList.remove('hidden');
-  //   leftie.classList.add('slut');
+  setTimeout(() => {
+    loadingPage.classList.add('hidden');
+    openScene.classList.remove('hidden');
+    leftie.classList.add('slut');
     
     
-  // }, 5000);
+  }, 5000);
 
   
 
@@ -127,7 +127,7 @@ if (projectsContainer) {
         // Append description and skills to right side
         rightDiv.appendChild(descriptionParagraph);
         rightDiv.appendChild(skillsDiv);
-
+        
         // Append left and right side to project container
         projectDiv.appendChild(leftDiv);
         projectDiv.appendChild(rightDiv);
