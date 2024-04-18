@@ -17,50 +17,19 @@ gsap.fromTo(
   );
 
 
-  const openScene = document.querySelector('.reg');
-  const loadingPage = document.querySelector('.loading-page');
-  const leftie = document.querySelector('.leftie');
+  // const openScene = document.querySelector('.reg');
+  // const loadingPage = document.querySelector('.loading-page');
+  // const leftie = document.querySelector('.leftie');
 
-  setTimeout(() => {
-    loadingPage.classList.add('hidden');
-    openScene.classList.remove('hidden');
-    leftie.classList.add('slut');
+  // setTimeout(() => {
+  //   loadingPage.classList.add('hidden');
+  //   openScene.classList.remove('hidden');
+  //   leftie.classList.add('slut');
     
     
-  }, 5000);
+  // }, 5000);
 
-  const proba = document.querySelector('.proba');
-
-  document.body.addEventListener('click', () => {
-    proba.classList.toggle('w-16');
-    proba.classList.toggle('bg-slate-200');
-  });
-
-
-//   // Select the target elements to observe
-// const sections = document.querySelectorAll('.firstSlider, .secondSlider, .thirdSlider');
-// const navLinks = document.querySelectorAll('.nav-indicator');
-
-// // Options for the IntersectionObserver
-// const options = {
-//   threshold: 0.5 // 50% of the target element is visible
-// };
-
-// // Callback function to execute when the observed elements intersect with the viewport
-// const callback = (entries, observer) => {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       // Get the index of the intersecting section
-//       const index = [...sections].indexOf(entry.target);
-
-//       // Remove the 'active' class from all navigation links
-//       navLinks.forEach(link => link.classList.remove('w-16', 'bg-slate-200'));
-
-//       // Add the 'active' class to the corresponding navigation link
-//       navLinks[index].classList.add('w-16', 'bg-slate-200');
-//     }
-//   });
-// };
+  
 
 
 
@@ -79,7 +48,7 @@ const options = {
 // Callback function to execute when the observed elements intersect with the viewport
 const callback = (entries, observer) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if (entry.intersectionRatio >= 0.5) {
       // Get the index of the intersecting section
       const index = [...sections].indexOf(entry.target);
 
@@ -106,6 +75,7 @@ const callback = (entries, observer) => {
       // Check if the intersecting element is helperSlider
       if (entry.target.classList.contains('helperSlider')) {
         // Add the 'eks' class to the 2nd element in the navLinks array
+        console.log(`helper slider in view!`);
         navLinks[1].classList.add('eks');
       }
 
@@ -122,9 +92,8 @@ const callback = (entries, observer) => {
 // Create a new IntersectionObserver instance
 const observer = new IntersectionObserver(callback, options);
 
-// Observe each section
+// Observe each section individually
 sections.forEach(section => observer.observe(section));
-
 
 
 // ------------------- PROJECTS GENERATE ------------------ //
@@ -138,13 +107,12 @@ if (projectsContainer) {
     Projects.forEach(project => {
         // Create project container
         const projectDiv = document.createElement('div');
-        projectDiv.className = `flex my-2 h-full w-full text-white rounded-md group border-gray-500 hover:bg-gray-700 transition-all duration-150 cursor-pointer`;
+        projectDiv.className = `flex my-2 h-full w-full text-white text-justify rounded-md group border-gray-500 hover:bg-gray-700 transition-all duration-150 cursor-pointer`;
         
         // Add click event listener to redirect to project URL in a new tab
         projectDiv.addEventListener('click', () => {
           window.open(project.projectUrl, '_blank');
         });
-
 
         // Create left side for project image
         const leftDiv = document.createElement('div');
@@ -232,6 +200,7 @@ if (projectsContainer) {
 } else {
     console.error('Projects container not found');
 }
+
 
 
 // ------------------------------------- FORM ---------------------------------------------
