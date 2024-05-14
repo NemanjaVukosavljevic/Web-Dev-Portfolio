@@ -43,12 +43,12 @@ const callback = (entries, observer) => {
         navText[index].classList.add('eks');
       }
 
-      // Check if the intersecting element is helperSlider
-      if (entry.target.classList.contains('helperSlider')) {
-        // Add the 'eks' class to the 2nd element in the navLinks array
-        console.log(`helper slider in view!`);
-        navLinks[1].classList.add('eks');
-      }
+      // // Check if the intersecting element is helperSlider
+      // if (entry.target.classList.contains('helperSlider')) {
+      //   // Add the 'eks' class to the 2nd element in the navLinks array
+      //   console.log(`helper slider in view!`);
+      //   navLinks[1].classList.add('eks');
+      // }
 
       // Make navbar text white
       navbar.classList.add('text-white');
