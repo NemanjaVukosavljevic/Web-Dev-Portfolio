@@ -4,6 +4,8 @@ import form from "./form.js";
 
 
 
+
+
 gsap.fromTo(
     ".logo-name",
     {
@@ -38,14 +40,59 @@ gsap.fromTo(
 
 // Select the container where projects will be appended
 const projectsContainer = document.querySelector('.projectsDiv');
-
+const navLinks = document.querySelectorAll('.nav-indicator');
+const navText = document.querySelectorAll('.nav-text');
+let isEksAdded = false;
 // Check if the projects container exists
 if (projectsContainer) {
+
+     // Intersection Observer options
+     const options = {
+        root: null, // Use the viewport as the root
+        rootMargin: '0px', // No margin
+        threshold: 0.5 // Trigger when at least half of the target is visible
+    };
+
+    // Intersection Observer callback function
+    const callback = (entries, observer) => {
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                if (!(navLinks[1].classList.contains('eks')) && !(navText[1].classList.contains('eks'))) {
+                    navLinks[1].classList.add('eks');
+                    navText[1].classList.add('eks');
+                }
+                // Add the 'eks' class when in view
+                // console.log(`helper slider in view!`);
+                // navLinks[1].classList.add('eks');
+                // navText[1].classList.add('eks');
+            } else {
+                // Remove the 'eks' class when out of view
+                console.log(`helper slider out of view!`);
+                navLinks[1].classList.remove('eks');
+                navText[1].classList.remove('eks');
+            }
+            // if (entry.target.classList.contains('helperSlider')) {
+            //     // Add the 'eks' class to the 2nd element in the navLinks array
+            //     console.log(`helper slider in view!`);
+            //     console.log(navLinks[1]);
+            //     navLinks[1].classList.add('eks');
+            //     navText[1].classList.add('eks');
+            // }
+        });
+    };
+
+    // Create the Intersection Observer
+    const projectObserver = new IntersectionObserver(callback, options);
+
+
+
     // Iterate over each project in the Projects array
     Projects.forEach(project => {
         // Create project container
         const projectDiv = document.createElement('div');
-        projectDiv.className = `flex my-2 h-full w-full text-white text-justify rounded-md group border-gray-500 hover:bg-gray-700 transition-all duration-150 cursor-pointer`;
+        projectDiv.className = `helperSlider flex my-2 h-full w-full text-white text-justify rounded-md group border-gray-500 hover:bg-gray-700 transition-all duration-150 cursor-pointer`;
         
         // Add click event listener to redirect to project URL in a new tab
         projectDiv.addEventListener('click', () => {
@@ -131,12 +178,19 @@ if (projectsContainer) {
         // Append left and right side to project container
         projectDiv.appendChild(leftDiv);
         projectDiv.appendChild(rightDiv);
+        
+        
 
+        // Intersection observer to monitor each project
+        projectObserver.observe(projectDiv);
+        
         // Append project container to projects container
+
         projectsContainer.appendChild(projectDiv);
     });
 } else {
     console.error('Projects container not found');
 }
+
 
 

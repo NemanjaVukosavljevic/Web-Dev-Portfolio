@@ -21,6 +21,13 @@ const Projects = [
         projectUrl: 'https://nemanjavukosavljevic.github.io/Admin-Dashboard-App/dist/',
     },
     {
+        img: './images/MovieWatch.png',
+        projectName: 'MovieWatch',
+        description: `Step into the realm of cinematic exploration with our Movie Review and Trailer Hub. Powered by the TMDB API, our website provides a comprehensive collection of movie reviews and trailers, offering a one-stop destination for film enthusiasts.`,
+        tech: ['react', 'javascript', 'tailwind', 'html'],
+        projectUrl: 'https://moviewatchreal.netlify.app/',
+    },
+    {
         img: './images/commerce.png',
         projectName: 'E-Commerce Website',
         description: 'Enter the world of seamless online shopping with our E-Commerce Website. Built with React, JavaScript, Tailwind, and HTML, it offers a smooth browsing experience and secure transactions.',
@@ -144,7 +151,7 @@ const Projects = [
         projectName: 'Calculator',
         description: 'Challenge yourself with our interactive Calculator, designed with JavaScript, CSS, and HTML. Solve math problems and enhance your arithmetic skills.',
         tech: ['javascript', 'css', 'html'],
-        projectUrl: 'https://nemanjavukosavljevic.github.io/Calculator-project/',
+        projectUrl: 'https://nemanjavukosavljevic.github.io/Calculator-project/'
     },
 ]
 

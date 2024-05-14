@@ -7,6 +7,7 @@ const sections = document.querySelectorAll('.firstSlider, .secondSlider, .thirdS
 const navLinks = document.querySelectorAll('.nav-indicator');
 const navText = document.querySelectorAll('.nav-text');
 const navbar = document.querySelector('.leftie');
+const trazim = document.querySelector('.thirdSlider');
 
 // Options for the IntersectionObserver
 const options = {
@@ -30,6 +31,8 @@ const callback = (entries, observer) => {
       // Remove the 'active' class from all navigation links
       navLinks.forEach(link => link.classList.remove('eks'));
       navText.forEach(link => link.classList.remove('eks'));
+
+      
 
       if (!isAlreadyActive) {
         // Add the 'active' class to the corresponding navigation link if not already active
