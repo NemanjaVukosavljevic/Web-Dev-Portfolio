@@ -42,6 +42,13 @@ const Projects = [
         projectUrl: 'https://spacexapp-amazedevs.netlify.app/',
     },
     {
+        img: './images/TeamManager.png',
+        projectName: 'Team Manager App',
+        description: 'Explore the efficiency of TeamManager, an intuitive application designed for seamless employee management. Built using React, JavaScript, and Tailwind CSS, TeamManager offers a comprehensive platform to organize your workforce effortlessly.',
+        tech: ['react', 'javascript', 'tailwind', 'html'],
+        projectUrl: 'https://team-member-manager.netlify.app/',
+    },
+    {
         img: './images/currency.png',
         projectName: 'Exchange Office App',
         description: 'Embark on a seamless currency exchange journey with our Exchange Office App, crafted with JavaScript, Tailwind, and HTML. Effortlessly convert currencies and stay updated on rates.',
